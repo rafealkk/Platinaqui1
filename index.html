@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="CSS/inicial.css">
+    <style>
+        /* Estilos para a funcionalidade de busca - mantendo o estilo original */
+        .hidden {
+            display: none !important;
+        }
+        
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+        
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        
+        #search-bar {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease;
+            background-color: #0a0a0a; /* Mantendo o fundo original */
+        }
+        
+        #search-bar:focus {
+            border-color: #4a6fa5;
+            background-color: white; /* Apenas no foco fica branco */
+        }
+        
+        .search-container button {
+            position: absolute;
+            right: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .search-container button img {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #f5f5f5; /* Fundo igual ao original do site */
+            border: 1px solid #ddd;
+            border-radius: 0 0 10px 10px;
+            border-top: none;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: none;
+        }
+        
+        .search-result-item {
+            padding: 12px 15px;
+            cursor: pointer;
+            border-bottom: 1px solid #e0e0e0;
+            transition: background-color 0.2s ease;
+            font-size: 14px;
+        }
+        
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .search-result-item:hover {
+            background-color: #e8e8e8;
+        }
+        
+        .no-results {
+            padding: 12px 15px;
+            color: #666;
+            font-style: italic;
+            text-align: center;
+        }
+        
+        /* Melhorias para o layout responsivo - mantendo o estilo original */
+        .cabecalho {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background-color: #111111; /* Mantendo o fundo original */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            flex-wrap: wrap;
+            gap: 15px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .cabecalho h1 {
+            margin: 0;
+            color:  rgb(255, 196, 0);;
+          font-family:"Mantinia";
+        }
+        
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Ajustes para telas menores */
+        @media (max-width: 768px) {
+            .cabecalho {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .search-container {
+                max-width: 100%;
+                margin-top: 10px;
+            }
+            
+            .cabecalho h1 {
+                font-size: 20px;
+            }
+        }
+        
+        .search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    width: 100%;
+    background-color: #000; /* fundo escuro, combina com o tema */
+    border: 2px solid #555; /* borda única */
+    border-radius: 25px;
+    padding: 5px 10px;
+}
+
+#search-bar {
+    width: 100%;
+    padding: 8px 10px;
+    border: none; /* remove borda dupla */
+    border-radius: 25px;
+    font-size: 14px;
+    outline: none;
+    background-color: transparent; /* mantém o fundo escuro */
+    color: white; /* texto branco */
+}
+
+#search-bar::placeholder {
+    color: #aaa;
+}
+
+#search-bar:focus {
+    border: none;
+    outline: none;
+    background-color: transparent; /* não muda de cor ao focar */
+}
+
+.search-container button {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.search-container button img {
+    width: 20px;
+    height: 20px;
+    filter: invert(100%); /* ícone branco */
+}
+
+/* RESULTADOS DE BUSCA */
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #1d1d1d; /* fundo escuro */
+    border: 1px solid #333;
+    border-radius: 0 0 10px 10px;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    display: none;
+}
+
+.search-result-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #333;
+    transition: background-color 0.2s ease;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.search-result-item:hover {
+    background-color: #2a2a2a;
+}
+
+.highlight {
+    background-color: #ffc400;
+    color: #000;
+    font-weight: bold;
+}
+    </style>
+</head>
+<body>
+    <!-- Mantendo a estrutura original do seu body -->
+    
+<header class="cabecalho">
+    <div class="logo-container">
+        <a href="index.html">
+            <img src="img/Logo_SemFundo.png" alt="Logo" id="logo"> 
+        </a> 
+        <a href="index.html"><h1>PLATINAQUI</h1></a>
+    </div>
+    
+    <form class="search-container" id="search-form">
+        <input type="text" id="search-bar" placeholder="Buscar jogos...">
+        <button type="submit">
+          <img src="img/lupa.png" alt="Buscar">
+        </button>
+        <div class="search-results" id="search-results"></div>
+    </form>
+</header>
+
+<nav class="barra-lateral">
+     <div class="barra-lateral1">
+            <a href="index.html"><img src="img/Aniket-Suvarna-Box-Regular-Bx-home.512.png" id="item"></a>
+            <a href="recentes.html"><img src="img/Aniket-Suvarna-Box-Regular-Bx-time.512.png" id="item"></a>
+            <a href="salvos.html"><img src="img/Aniket-Suvarna-Box-Regular-Bx-bookmark.512.png" id="item"></a>
+        </div>  
+            <div class="barra-lateral2">
+                    <a href="login.html"><img src="img/Aniket-Suvarna-Box-Regular-Bx-user-circle.512.png" id="item"></a>
+                    <a href="config.html"><img src="img/Aniket-Suvarna-Box-Regular-Bx-cog.512.png" id="item"></a>
+            </div>
+</nav>
+
+<div class="flex-container" id="games-container">
+    
+    <div class="biblioteca" data-game-name="Elden Ring">
+        <a href="ER.html"><img src="img/download (1).jpg" alt="Elden Ring">
+            <h2>Elden Ring</h2>
+            <h5>nº posts</h5></a>
+    </div>
+    <div class="biblioteca" data-game-name="Red Dead Redemption 2">
+        <a href="RDR2.html"><img src="img/download (2).jpg" alt="Red Dead Redemption 2">
+            <h2>Red Dead Redemption 2</h2>
+            <h5>nº posts</h5></a>
+    </div>
+    <div class="biblioteca" data-game-name="Cyberpunk 2077">
+        <a href="CYBERPUNK.html"><img src="img/download (3).jpg" alt="Cyberpunk">
+            <h2>Cyberpunk 2077</h2>
+            <h5>nº posts</h5></a>
+    </div>
+    <div class="biblioteca" data-game-name="Dark Souls 3">
+        <a href="DS3.html"><img src="img/Dark_Souls_3_capa.png" alt="DS3">
+            <h2>Dark Souls 3</h2>
+            <h5>nº posts</h5></a>
+    </div>
+    <div class="biblioteca" data-game-name="Metal Gear Rising Revengeance">
+        <a href="MGR.html"><img src="img/Metal_Gear_Rising_capa.png" alt="MGR">
+            <h2>Metal Gear Rising: Revengeance</h2>
+            <h5>nº posts</h5></a>
+    </div>
+</div>
+
+<script>
+    // Array com informações dos jogos
+    const games = [
+        {
+            name: "Elden Ring",
+            element: document.querySelector('[data-game-name="Elden Ring"]'),
+            url: "ER.html"
+        },
+        {
+            name: "Red Dead Redemption 2", 
+            element: document.querySelector('[data-game-name="Red Dead Redemption 2"]'),
+            url: "RDR2.html"
+        },
+        {
+            name: "Cyberpunk 2077",
+            element: document.querySelector('[data-game-name="Cyberpunk 2077"]'),
+            url: "CYBERPUNK.html"
+        },
+        {
+            name: "Dark Souls 3",
+            element: document.querySelector('[data-game-name="Dark Souls 3"]'),
+            url: "DS3.html"
+        },
+        {
+            name: "Metal Gear Rising Revengeance",
+            element: document.querySelector('[data-game-name="Metal Gear Rising Revengeance"]'),
+            url: "MGR.html"
+        }
+    ];
+
+    // Elementos DOM
+    const searchBar = document.getElementById('search-bar');
+    const searchForm = document.getElementById('search-form');
+    const searchResults = document.getElementById('search-results');
+    const gamesContainer = document.getElementById('games-container');
+
+    // Função para filtrar jogos
+    function filterGames(searchTerm) {
+        const normalizedSearch = searchTerm.toLowerCase().trim();
+        
+        if (normalizedSearch === '') {
+            // Se a busca estiver vazia, mostrar todos os jogos
+            games.forEach(game => {
+                game.element.classList.remove('hidden');
+            });
+            searchResults.style.display = 'none';
+            return;
+        }
+
+        // Filtrar jogos que correspondem à busca
+        const matchedGames = games.filter(game => 
+            game.name.toLowerCase().includes(normalizedSearch)
+        );
+
+        // Atualizar a exibição dos jogos
+        games.forEach(game => {
+            if (matchedGames.some(matched => matched.name === game.name)) {
+                game.element.classList.remove('hidden');
+            } else {
+                game.element.classList.add('hidden');
+            }
+        });
+
+        // Mostrar resultados da busca em tempo real
+        showSearchResults(matchedGames, normalizedSearch);
+    }
+
+    // Função para mostrar resultados da busca em tempo real
+    function showSearchResults(matchedGames, searchTerm) {
+        searchResults.innerHTML = '';
+        
+        if (matchedGames.length === 0) {
+            const noResults = document.createElement('div');
+            noResults.className = 'no-results';
+            noResults.textContent = 'Nenhum jogo encontrado';
+            searchResults.appendChild(noResults);
+        } else {
+            matchedGames.forEach(game => {
+                const resultItem = document.createElement('div');
+                resultItem.className = 'search-result-item';
+                
+                // Destacar o termo buscado no nome do jogo
+                const highlightedName = highlightText(game.name, searchTerm);
+                resultItem.innerHTML = highlightedName;
+                
+                resultItem.addEventListener('click', () => {
+                    window.location.href = game.url;
+                });
+                
+                searchResults.appendChild(resultItem);
+            });
+        }
+        
+        searchResults.style.display = 'block';
+    }
+
+    // Função para destacar o texto da busca
+    function highlightText(text, searchTerm) {
+        const regex = new RegExp(`(${searchTerm})`, 'gi');
+        return text.replace(regex, '<span class="highlight">$1</span>');
+    }
+
+    // Event listeners
+    searchBar.addEventListener('input', function() {
+        filterGames(this.value);
+    });
+
+    searchBar.addEventListener('focus', function() {
+        if (this.value.trim() !== '') {
+            filterGames(this.value);
+        }
+    });
+
+    searchForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        filterGames(searchBar.value);
+    });
+
+    // Fechar resultados da busca quando clicar fora
+    document.addEventListener('click', function(e) {
+        if (!searchForm.contains(e.target)) {
+            searchResults.style.display = 'none';
+        }
+    });
+
+    // Fechar resultados ao pressionar ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            searchResults.style.display = 'none';
+            searchBar.blur();
+        }
+    });
+
+    // Mostrar todos os jogos inicialmente
+    filterGames('');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Post</title>
+    <link rel="stylesheet" href="css/criar.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <a href="index.html"><img src="img/Logo_SemFundo.png" alt="Logo" id="logo"></a> 
+        <a href="index.html"><h1>PLATINAQUI</h1></a>
+    </header>
+    
+    <nav class="barra-lateral">
+        <div class="barra-lateral1">
+            <a href="index.html"><img src="img/Aniket-Suvarna-Box-Regular-Bx-home.512.png" id="item"></a>
+            <a href="recentes.html"><img src="img/Aniket-Suvarna-Box-Regular-Bx-time.512.png" id="item"></a>
+            <a href="salvos.html"><img src="img/Aniket-Suvarna-Box-Regular-Bx-bookmark.512.png" id="item"></a>
+        </div>  
+        <div class="barra-lateral2">
+            <a href="login.html"><img src="img/Aniket-Suvarna-Box-Regular-Bx-user-circle.512.png" id="item"></a>
+            <a href="config.html"><img src="img/Aniket-Suvarna-Box-Regular-Bx-cog.512.png" id="item"></a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="criacao">
+            <h2>Criar Nova Conquista</h2>
+            <form id="form-post">
+                <div class="input-container">
+                    <input type="text" id="campo-titulo" required>
+                    <label for="campo-titulo">Título da Conquista</label>
+                </div>   
+                <div class="input-content">
+                    <textarea id="campo-conteudo" placeholder="Descreva como obter esta conquista..." required></textarea>
+                    <label for="campo-conteudo">Descrição</label>
+                </div>
+                                
+                <div class="input-container">
+                        <input type="url" id="link" >
+                        <label for="campo-link">Link</label>
+                </div>
+                                
+                <div class="multimidia">
+                    <input type="file" id="multimidia" accept="image/*">
+                    <label for="multimidia">Imagem da Conquista (opcional)</label>
+                    <div class="preview-imagem" id="preview-container"></div>
+                </div>
+                
+                <div class="botoes">
+                    <button type="submit" class="btn-publicar">Publicar Conquista</button>
+                    <a href="ER.html" class="btn-voltar">Voltar para Elden Ring</a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="JavaScript/criar.js"></script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+nav{
+    border: solid rgb(0, 0, 0);
+    width: 50px;
+    height: 100%;
+    background-color: #000000;
+    position: fixed; 
+    left: 0;
+    top: 0;
+}
+
+body{
+    background-color: black;
+}
+
+h1{
+    color: rgb(255, 196, 0);
+    font-family:"Mantinia";
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+#logo {
+    width: 75px;
+    display: flex;
+}
+
+.cabecalho{
+    display: flex;
+    margin-left: 50px;
+}
+
+.logo{
+    margin-left: 5px;
+}
+
+.barra-lateral{
+    display: flex;
+    flex-direction: column;
+    font-size: 1px;
+    background-color: rgb(29, 29, 29);
+    height: 100%;
+}
+
+#item{
+    height: 50px;
+    filter: invert(50%);
+}
+
+@font-face{
+    font-family: "Mantinia";
+    src: url("/CSS/Mantinia Regular.otf");
+}
+
+.barra-lateral1{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 40%;
+}
+
+.barra-lateral2{
+    display: flex;
+    flex-direction: column;
+    font-size: 1px;
+    margin-top: 1200%;
+    gap: 15px;
+}
+
+main h2{
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.criacao{
+    background-color: #161616;
+    margin: 50px;
+    padding: 40px;
+    border-radius: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+/* Input containers */
+.input-container, .input-content, .multimidia {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.input-container input, 
+.input-content textarea,
+.multimidia input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #222;
+    color: white;
+    transition: border-color 0.3s;
+}
+
+.input-container input:focus,
+.input-content textarea:focus,
+.multimidia input:focus {
+    border-color: rgb(255, 196, 0);
+    outline: none;
+}
+
+.input-content textarea {
+    min-height: 150px;
+    resize: vertical;
+    font-family: Arial, sans-serif;
+}
+
+/* Labels */
+.input-container label,
+.input-content label,
+.multimidia label {
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    background: #161616;
+    padding: 0 10px;
+    font-size: 14px;
+    color: rgb(255, 196, 0);
+    pointer-events: none;
+    transition: 0.3s ease all;
+}
+
+/* Preview da imagem */
+.preview-imagem {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.preview-imagem img {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 10px;
+    border: 2px solid #333;
+}
+
+/* Botões */
+.botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn-publicar {
+    background-color: rgb(255, 196, 0);
+    color: black;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-publicar:hover {
+    background-color: rgb(255, 215, 0);
+}
+
+.btn-voltar {
+    display: block;
+    text-align: center;
+    color: #999;
+    text-decoration: none;
+    padding: 12px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.btn-voltar:hover {
+    color: white;
+    border-color: rgb(255, 196, 0);
+    background-color: #222;
+}
+
+/* Estilo para o input file */
+.multimidia input[type="file"] {
+    padding: 12px;
+    cursor: pointer;
+}
+
+.multimidia input[type="file"]::file-selector-button {
+    background: rgb(255, 196, 0);
+    color: black;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.multimidia input[type="file"]::file-selector-button:hover {
+    background: rgb(255, 215, 0);
+}

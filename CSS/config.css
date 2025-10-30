@@ -1,0 +1,146 @@
+nav{border: solid rgb(0, 0, 0);
+    width: 50px;
+    height: 100%;
+    background-color: #000000;
+    position: fixed; 
+    left: 0;
+    top: 0;
+  }
+  
+  .flex-container{
+    background-color: #111111;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+    display:flex;
+    margin-left: 100px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: small;
+    text-align: center;
+    margin-right: 50px;
+  margin-top: 75px;
+  border-radius: 20px;
+  }
+  
+  body{
+  background-color: black;
+  }
+  
+  h1{
+    color: rgb(255, 196, 0);
+    font-family:"Mantinia";
+  }
+  
+  a{
+   color: white;
+   text-decoration: none;
+  }
+  
+  .biblioteca a:hover{
+    text-decoration: underline;
+    transform: scale(1.05);
+  }
+  
+  .biblioteca a{
+    display: block;
+  }
+  
+  .biblioteca img{
+    width: 250px;
+    height: 350px;
+    border: 4px solid #000;
+    border-radius: 30px;
+  }
+  
+  #logo {
+    width: 75px;
+    display: flex;
+  }
+  
+  .cabecalho{
+    display: flex;
+    margin-left: 50px;
+  }
+  
+  .logo{
+   margin-left: 5px;
+  }
+  
+  .barra-lateral{
+    display: flex;
+    flex-direction: column;
+    font-size: 1px;
+    background-color: rgb(29, 29, 29);
+    height: 100%;
+  }
+  
+  #item{
+    height: 50px;
+    filter: invert(50%);
+  }
+  
+  
+  @font-face{
+    font-family: "Mantinia";
+    src: url("/CSS/Mantinia\ Regular.otf")}
+  
+  
+    .barra-lateral1{
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 40%;
+    }
+  
+    .barra-lateral2{
+      display: flex;
+    flex-direction: column;
+    font-size: 1px;
+    margin-top: 1200%;
+    gap: 15px;
+    }
+    
+    .search-container {
+      display: flex; /* Alinha os elementos lado a lado */
+      align-items: center; /* Centraliza verticalmente */
+      border: 2.5px solid gray; /* Borda da caixa */
+      border-radius: 20px; /* Cantos arredondados */
+      padding: 5px 10px; /* Espaçamento interno */
+      width: 30%; /* Largura da barra */
+      margin-left: 10%;
+      margin-top: 1%;
+    }
+    
+  input{
+      color: white;
+      height: 90%;
+      background-color: rgb(0, 0, 0);
+      margin-left: 0;
+  }
+  
+    .search-container input[type="text"] {
+      border: none; /* Remove a borda do input */
+      outline: none; /* Remove a linha de contorno ao focar */
+      flex-grow: 1; /* Permite que o input ocupe o espaço disponível */
+      padding: 5px;
+    }
+    
+    button{
+      height: 100%;
+    }
+  
+    .search-container button {
+      background: none; /* Fundo transparente */
+      border: none; /* Borda transparente */
+      cursor: pointer; /* Muda o cursor para ponteiro */
+      padding: 0;
+      margin-left: 5px; /* Espaço entre o input e o botão */
+    }
+    
+    .search-container button img {
+      width: 30px; /* Tamanho da lupa */
+      height: 30px;
+      filter: invert(100%);
+    }
